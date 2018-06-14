@@ -12,6 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 	@Entity
 	@Table(name="tb_produto", uniqueConstraints = {
 			@UniqueConstraint(columnNames = { "id"})
@@ -29,8 +33,13 @@ public class Produto {
 	@Version
 	private Long version;
 	
+	
+	@NotBlank
+	@Size(max=100)
+	@Pattern(regexp="[A-zÀ-ú.´ ]*", message="Caracteres permitidos: letras, espaços, ponto e aspas simples")
 	@Column(length=100, nullable=false)
  	private String nome;
+	
 	
 	@Column(length=4000, nullable=false)
 	private String descricao;
@@ -38,6 +47,8 @@ public class Produto {
 	@Column(length=(int) 14.2, nullable=false)
 	private BigDecimal preco;
 	
+	@Size(max=100)
+	@Pattern(regexp="[A-zÀ-ú.´ ]*", message="Caracteres permitidos: letras, espaços, ponto e aspas simples")
 	@Column(length=100, nullable=false)
 	private String fabricante;
 	

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 	@Entity
 	@Table(name="tb_categoria", uniqueConstraints = {
@@ -19,12 +21,15 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Version
 	private Long version;
 	
+	@Size(max=100)
+	@Pattern(regexp="[A-zÀ-ú.´/ ]*", message="Caracteres permitidos: letras, espaços, ponto e aspas simples")
 	@Column(length=4000, nullable=false)
 	private String descricao;
+	
 	
 	@Override
 	public int hashCode() {
