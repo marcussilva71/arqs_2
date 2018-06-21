@@ -27,13 +27,13 @@ public class TestValidationCategoria {
 		System.out.println(k);
 		Set<ConstraintViolation<Categoria>> constraintViolations = validator.validate(k);
 		for (ConstraintViolation<Categoria> cat : constraintViolations) {
-			System.out.println(" Erro de Validacao: " + cat.getMessage());
+			System.out.println(" Erro de Validacao: do bug " + cat.getMessage());
 		}
-		Assert.assertEquals(0, constraintViolations.size());
+		Assert.assertEquals(1, constraintViolations.size());
 	}
 	
 	@Test
-	public void testeValidacaoProduto2() {
+	public void testeValidacaoCategoria2() {
 		Categoria k = new Categoria(1L, "descricao1");
 		System.out.println(k);
 		Set<ConstraintViolation<Categoria>> constraintViolations = validator.validate(k);

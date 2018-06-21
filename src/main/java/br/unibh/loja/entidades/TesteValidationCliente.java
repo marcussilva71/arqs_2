@@ -23,24 +23,24 @@ public class TesteValidationCliente {
 	}
 
 	@Test
-	public void testeValidacaoCidade1() {
+	public void testeValidacaoCliente1() {
 		Cliente c = new Cliente(1L, "nome", "login", "senha", "perfil", "cpf", "telefone", "email", new Date (), new Date ());
 		System.out.println(c);
 		Set<ConstraintViolation<Cliente>> constraintViolations = validator.validate(c);
 		for (ConstraintViolation<Cliente> cl : constraintViolations) {
 			System.out.println(" Erro de Validacao: " + cl.getMessage());
 		}
-		Assert.assertEquals(0, constraintViolations.size());
+		Assert.assertEquals(3, constraintViolations.size());
 	}
 	
 	@Test
-	public void testeValidacaoCidade2() {
+	public void testeValidacaoCliente2() {
 		Cliente c = new Cliente(2L, "nome1", "login1", "senha1", "perfil1", "cpf1", "telefone1", "email1", new Date(), new Date() );
 		System.out.println(c);
 		Set<ConstraintViolation<Cliente>> constraintViolations = validator.validate(c);
 		for (ConstraintViolation<Cliente> cl : constraintViolations) {
 			System.out.println(" Erro de Validacao: " + cl.getMessage());
 		}
-		Assert.assertEquals(1, constraintViolations.size());
+		Assert.assertEquals(5, constraintViolations.size());
 	}
 }

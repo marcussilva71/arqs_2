@@ -30,7 +30,7 @@ public class TestValidationProduto {
 		for (ConstraintViolation<Produto> pr : constraintViolations) {
 			System.out.println(" Erro de Validacao: " + pr.getMessage());
 		}
-		Assert.assertEquals(0, constraintViolations.size());
+		Assert.assertEquals(2, constraintViolations.size());
 	}
 	
 	@Test
@@ -41,6 +41,6 @@ public class TestValidationProduto {
 		for (ConstraintViolation<Produto> pr : constraintViolations) {
 			System.out.println(" Erro de Validacao: " + pr.getMessage());
 		}
-		Assert.assertEquals(1, constraintViolations.size());
+		Assert.assertEquals(2, constraintViolations.size());
 	}
 }
