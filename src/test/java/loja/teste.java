@@ -18,14 +18,14 @@ public class teste {
 	public void testarCliente() {
 		Cliente c1 = new Cliente(1L, "nome", "login", "senha", "perfil", "cpf", "telefone", "email", new Date(), new Date());
 		assertEquals(c1.getCpf(), "cpf");
-	
+		System.out.println(c1);
 	}
 	
 	@Test
 	public void testarCategoria() {
 		Categoria cat1 = new Categoria(1L, "descricao");
 		assertEquals(cat1.getDescricao(), "descricao");
-
+		System.out.println(cat1);
 	}
 	
 	@Test
@@ -33,6 +33,8 @@ public class teste {
 		Categoria cat1 = new Categoria(1L, "descricao");
 		Produto p1 = new Produto(1L,"nome", "descricao", cat1, new BigDecimal(10000), "fabricante");
 		assertEquals(p1.getFabricante(), "fabricante");
+		System.out.println(p1);
+		
 	}
 
 }
