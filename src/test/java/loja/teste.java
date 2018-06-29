@@ -28,5 +28,4 @@ public class teste {
 		Cliente c1 = new Cliente(1L, "nome", "login", "senha", "perfil", "cpf", "telefone", "email", new Date(), new Date());
 		System.out.print(c1.toString());
 	}
-
 }
