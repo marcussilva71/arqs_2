@@ -18,15 +18,15 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
 
-	@Entity
-	@Table(name="tb_produto", uniqueConstraints = {
-			@UniqueConstraint(columnNames = { "id"})
+@Entity
+@Table(name="tb_produto", uniqueConstraints = {
+	    @UniqueConstraint(columnNames = { "nome"})
 	})
-	
-	@NamedQueries({
+
+@NamedQueries({
 	@NamedQuery(name="Produto.findByName", query = "select o from Produto o where o.nome like :nome")
-	})
-	
+})
+
 public class Produto {
 	
 	@ManyToOne(optional=false)

@@ -13,15 +13,14 @@ import javax.persistence.Version;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-	@Entity
-	@Table(name="tb_categoria", uniqueConstraints = {
-	    @UniqueConstraint(columnNames = { "id"})
+@Entity
+@Table(name="tb_categoria", uniqueConstraints = {
+	    @UniqueConstraint(columnNames = { "descricao"})
 	})
-	
-	@NamedQueries({
-	@NamedQuery(name="Categoria.findByName", query = "select o from Produto o where o.nome like :nome")
-	})
-	
+@NamedQueries({
+	@NamedQuery(name="Categoria.findByName", query = "select o from Categoria o where o.descricao like :descricao")
+})
+
 public class Categoria {
 	
 	@Id

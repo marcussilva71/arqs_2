@@ -19,14 +19,17 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
-	@Entity
-	@Table(name="tb_cliente", uniqueConstraints = {
-			@UniqueConstraint(columnNames = { "id"})
+
+@Entity
+@Table(name="tb_client", uniqueConstraints = {
+	    @UniqueConstraint(columnNames = { "cpf"}),
+	    @UniqueConstraint(columnNames = { "login"})
 	})
-	@NamedQueries({
-	@NamedQuery(name="Cliente.findByName", query = "select o from Categoria o where o.descricao like :descricao")
-	})
-	
+
+@NamedQueries({
+	@NamedQuery(name="Cliente.findByName", query = "select o from Cliente o where o.nome like :nome")
+})
+
 public class Cliente {
 	
 	@Id
@@ -301,5 +304,6 @@ public class Cliente {
 	public void setVersion(Long version) {
 		this.version = version;
 	}
+	
 	
 }
